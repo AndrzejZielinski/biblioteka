@@ -27,7 +27,7 @@ class Genre(models.Model):
 
 
     
-class Books(models.Model):
+class Book(models.Model):
     title = models.CharField('Tytuł', max_length=50)
     author = models.ForeignKey(Author)
     about = models.TextField('Opis')

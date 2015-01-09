@@ -9,12 +9,12 @@
 {% block body_block %}
 
 
- {% if genres %}
+ <h1>Rango says..hello world!</h1>
+
+        {% if genres %}
             <ul>
                 {% for genre in genres %}
-             
-
-                <li><a href="{{ page.url }}">{{ Genre.genre }}</a></li>
+                <li><a href="/srkob/genre_details/{{ genre.url }}">{{ genre.genre_main }}</a></li>
                 {% endfor %}
             </ul>
         {% else %}
