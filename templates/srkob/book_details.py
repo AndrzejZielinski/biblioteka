@@ -8,11 +8,10 @@
 {% block nav_body %}{% endblock %}
 {% block body_block %}
         <h1>{{ genre_name }}</h1>
-        {% if genre %}
-            {% if books %}
+        {% if books %}
             <ul>
                 {% for book in books %}
-                <li><a href="/srkob/book_details/{{ book.url }}">{{ book.title }}</a></li>
+                <li>{{ book.title }}</a></li>
                 {% endfor %}
             </ul>
             {% else %}
