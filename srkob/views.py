@@ -25,6 +25,7 @@ def genre(request):
     for genre in genre_list:
         genre.url = genre.genre_main
     return render_to_response('srkob/genre.html', context_dict, context)
+<<<<<<< HEAD
 
 def genre_details(request, genre_name_url):
     context = RequestContext(request)
@@ -57,6 +58,27 @@ def book_details(request, book_name_url):
         pass
     return render_to_response('srkob/book_details.html', context_dict, context)
  
+=======
+
+
+def genre_details(request, genre_name_url):
+    context = RequestContext(request)
+    genre_name = genre_name_url
+    context_dict = {'genre_name': genre_name}
+    try:
+        genre = Genre.objects.get(genre_main=genre_name)
+        books = Book.objects.filter(genre=genre)
+        context_dict['books'] = books
+        context_dict['genre'] = genre
+    except Genre.DoesNotExist:
+
+        pass
+    return render_to_response('srkob/genre_details.html', context_dict, context)
+
+
+
+
+>>>>>>> f807e813e81bb82e502257923495b6216a0ba557
 def register(request):
     context = RequestContext(request)
     registered = False
