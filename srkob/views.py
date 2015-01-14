@@ -71,8 +71,7 @@ def book_details(request, book_name_url):
     except Book.DoesNotExist:
 
         pass
-    if request.method == 'POST':
-        book_form == BookForm(data=request.POST)
+
         
     
         
@@ -127,6 +126,24 @@ def user_login(request):
             return render_to_response('srkob/login.html', context_dict, context)
     else:
         return render_to_response('srkob/login.html', {}, context)
+
+def rent_details(request):
+    context = RequestContext(request)
+    context_dict = {}
+    if request.method == 'POST':
+        title = request.POST['title']
+        context_dict['title'] = title
+
+        user_name = requst.POST['user_name']
+        context_dict['user_name'] = user_name
+
+        date = request.POST['date']
+        context_dict['date'] = date
+
+        state = request.POST['state']
+        context_dict['state'] = state
+
+    return render_to_response('srkob/rent_details.html', context_dict, context)
 
 @login_required
 def user_logout(request):
