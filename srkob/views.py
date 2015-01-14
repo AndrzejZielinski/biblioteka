@@ -41,6 +41,7 @@ def genre(request):
     for genre in genre_list:
         genre.url = encode_url(genre.genre_main)
     return render_to_response('srkob/genre.html', context_dict, context)
+<<<<<<< HEAD
 
 def genre_details(request, genre_name_url):
     context = RequestContext(request)
@@ -52,21 +53,35 @@ def genre_details(request, genre_name_url):
         context_dict['books'] = books
         context_dict['genre'] = genre
         for book in books:
+<<<<<<< HEAD
             book.url = encode_url(book.title)
+=======
+            book.url = book.title
+>>>>>>> b0ac0410d8acb8012e960cf6db1910b8aca88c54
     except Genre.DoesNotExist:
+
+
 
         pass
     return render_to_response('srkob/genre_details.html', context_dict, context)
 
+<<<<<<< HEAD
 def book_details(request, book_name_url):
     context = RequestContext(request)
     book_name = decode_url(book_name_url)
     date_plus = datetime.date.today() + datetime.timedelta(days=7)
     context_dict = {'date_plus' : date_plus}
+=======
+
+def book_details(request, book_name_url):
+    context = RequestContext(request)
+    book_name = book_name_url
+>>>>>>> b0ac0410d8acb8012e960cf6db1910b8aca88c54
     context_dict = {'book_name' : book_name}
     try:
         details = Book.objects.get(title=book_name)
         context_dict['details'] = details
+<<<<<<< HEAD
         
     except Book.DoesNotExist:
 
@@ -75,8 +90,34 @@ def book_details(request, book_name_url):
         
     
         
+=======
+    except Book.DoesNotExist:
+
+        pass
+>>>>>>> b0ac0410d8acb8012e960cf6db1910b8aca88c54
     return render_to_response('srkob/book_details.html', context_dict, context)
  
+=======
+
+
+def genre_details(request, genre_name_url):
+    context = RequestContext(request)
+    genre_name = genre_name_url
+    context_dict = {'genre_name': genre_name}
+    try:
+        genre = Genre.objects.get(genre_main=genre_name)
+        books = Book.objects.filter(genre=genre)
+        context_dict['books'] = books
+        context_dict['genre'] = genre
+    except Genre.DoesNotExist:
+
+        pass
+    return render_to_response('srkob/genre_details.html', context_dict, context)
+
+
+
+
+>>>>>>> f807e813e81bb82e502257923495b6216a0ba557
 def register(request):
     context = RequestContext(request)
     registered = False

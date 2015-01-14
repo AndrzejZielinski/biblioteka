@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends 'srkob/base.html' %}
 
 {% load static %}
@@ -7,14 +8,35 @@
 
 {% block nav_body %}{% endblock %}
 {% block body_block %}
+<<<<<<< HEAD
         <div class="hero-unit">
         <h3>{{ genre_name }}</h3>
+=======
+=======
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rango</title>
+    </head>
+
+    <body>
+>>>>>>> f807e813e81bb82e502257923495b6216a0ba557
+        <h1>{{ genre_name }}</h1>
+>>>>>>> b0ac0410d8acb8012e960cf6db1910b8aca88c54
         {% if genre %}
             {% if books %}
             <ul>
                 {% for book in books %}
+<<<<<<< HEAD
                 <li><a href="/srkob/book_details/{{ book.url }}">{{ book.title }}</a></li>
                 
+=======
+<<<<<<< HEAD
+                <li><a href="/srkob/book_details/{{ book.url }}">{{ book.title }}</a></li>
+=======
+                <li><a>{{ book.title }}</a></li>
+>>>>>>> f807e813e81bb82e502257923495b6216a0ba557
+>>>>>>> b0ac0410d8acb8012e960cf6db1910b8aca88c54
                 {% endfor %}
             </ul>
             {% else %}
@@ -23,5 +45,13 @@
         {% else %}
             Gatunek {{ genre_name }} nie istnieje.
         {% endif %}
+<<<<<<< HEAD
         </div>
+=======
+<<<<<<< HEAD
+>>>>>>> b0ac0410d8acb8012e960cf6db1910b8aca88c54
 {% endblock %} 
+=======
+    </body>
+</html>
+>>>>>>> f807e813e81bb82e502257923495b6216a0ba557
